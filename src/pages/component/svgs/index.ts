@@ -1,0 +1,1 @@
+export {default as instagramIcon} from "./instagramIcon.svg"
