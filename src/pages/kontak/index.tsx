@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import DetailBerita from "../detailBerita/index";
+import { storage } from "../../config/firebase";
 export default function Kontak() {
   const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
@@ -33,6 +34,26 @@ export default function Kontak() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const [file, setFile] = useState<any>(null);
+
+  const handleFileChange = (e: any) => {
+    if (e.target.files[0]) {
+      setFile(e.target.files[0]);
+    }
+  };
+
+  const handleUpload = () => {
+    if (file) {
+      const storageRef = storage.ref();
+      const fileRef = storageRef.child(file.name);
+
+      fileRef.put(file).then(() => {
+        console.log("File uploaded successfully");
+      });
+    }
+  };
+
   return (
     <>
       <Navbar fixed={scrolled} scrolled={scrolled} />
@@ -103,29 +124,7 @@ export default function Kontak() {
           height={800}
           className="rounded-[40px] mx-auto my-2"
         />
-        <div className="h-20 border-t-4 mt-20"></div>
-
-        {/* <div className="  px-48 ">
-          {beritaData.map((member: any, index: number) => (
-            <Link href={`/`} key={index} className="hover:text-red-500">
-              <div className="flex px-16 py-10 gap-10 mb-16 items-center bg-white rounded-2xl">
-                <Image
-                  src="/asset/background.jpg"
-                  alt="Image Description"
-                  width={302}
-                  height={302}
-                  className="rounded-[50px]  my-2"
-                />
-                <div>
-                  <p className="text-4xl font-[800] mb-4">
-                    {member.judulBerita}
-                  </p>
-                  <p>{member.tanggalTerbit}</p>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div> */}
+        <div className="h-20   mt-20"></div>
       </div>
     </>
   );

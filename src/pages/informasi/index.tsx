@@ -105,6 +105,7 @@ export default function Informasi() {
             </Link>
           ))}
         </div>
+        <div className="h-20 mt-20"></div>
       </div>
     </>
   );

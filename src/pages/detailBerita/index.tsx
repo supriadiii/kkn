@@ -94,27 +94,7 @@ export default function DetailBerita() {
             let’s begin your business story with us!
           </p>
         </div>
-        {/* <div className="  px-48 ">
-          {beritaData.map((member: any, index: number) => (
-            <Link href={`/`} key={index} className="hover:text-red-500">
-              <div className="flex px-16 py-10 gap-10 mb-16 items-center bg-white rounded-2xl">
-                <Image
-                  src="/asset/background.jpg"
-                  alt="Image Description"
-                  width={302}
-                  height={302}
-                  className="rounded-[50px]  my-2"
-                />
-                <div>
-                  <p className="text-4xl font-[800] mb-4">
-                    {member.judulBerita}
-                  </p>
-                  <p>{member.tanggalTerbit}</p>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div> */}
+        <div className="h-20 mt-20"></div>
       </div>
     </>
   );

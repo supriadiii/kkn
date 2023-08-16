@@ -48,6 +48,7 @@ export default function Home() {
       <div className="mt-10">
         <Visi />
       </div>
+      <div className="h-20   mt-20"></div>
     </>
   );
 }

@@ -90,6 +90,7 @@ export default function Visi() {
             height={275}
           />
         </div>
+        <div className="h-20  mt-20"></div>
       </div>
     </>
   );
