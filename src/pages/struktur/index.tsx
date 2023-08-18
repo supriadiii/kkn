@@ -1,91 +1,94 @@
 import Image from "next/image";
 import Navbar from "../component/Navbar/navbar";
 import { useEffect, useState } from "react";
+import Layout from "../component/layout";
 
 export default function Visi() {
   const [scrolled, setScrolled] = useState(false);
   const teamMembers = [
     {
-      name: "Supriadi",
+      name: "M. Nasir",
       role: "Kepala Desa",
+    },
+    {
+      name: "Fahreza",
+      role: "Sekdes",
       imageUrl: "/asset/pp.png",
     },
     {
-      name: "Nama Anggota 1",
-      role: "Jabatan 1",
+      name: "Safri Purba",
+      role: "Kaur Umum",
       imageUrl: "/asset/pp.png",
     },
     {
-      name: "Nama Anggota 2",
-      role: "Jabatan 2",
+      name: "Ramadani",
+      role: "Kaur Keuangan ",
       imageUrl: "/asset/pp.png",
     },
     {
-      name: "Supriadi",
-      role: "Kepala Desa",
+      name: "Rolas Sirait",
+      role: "Kasi Kesejartaan & Pelayanan",
       imageUrl: "/asset/pp.png",
     },
     {
-      name: "Nama Anggota 1",
-      role: "Jabatan 1",
+      name: "Taufik",
+      role: "Kasi Pemerintahan",
       imageUrl: "/asset/pp.png",
     },
     {
-      name: "Nama Anggota 2",
-      role: "Jabatan 2",
+      name: "Zulpan Efendi Sinaga",
+      role: "Kadus dusun 1",
+      imageUrl: "/asset/pp.png",
+    },
+    {
+      name: "Feri Nova Ginting",
+      role: "Kadus dusun 2",
+      imageUrl: "/asset/pp.png",
+    },
+    {
+      name: "Indra Manotar Pakpahan",
+      role: "Kadus dusun 3",
+      imageUrl: "/asset/pp.png",
+    },
+    {
+      name: "Kennedi Sihombing",
+      role: "Kadus dusun 4",
+      imageUrl: "/asset/pp.png",
+    },
+    {
+      name: "Halasson Sitorus",
+      role: "Kadus dusun 5",
+      imageUrl: "/asset/pp.png",
+    },
+    {
+      name: "Togam Nainggolan",
+      role: "Kadus dusun 6",
       imageUrl: "/asset/pp.png",
     },
     // ... tambahkan data anggota tim lainnya
   ];
-  const handleScroll = () => {
-    const scrollPosition = window.scrollY;
-    const scrollThreshold = 100;
 
-    if (scrollPosition > scrollThreshold) {
-      setScrolled(true);
-    } else {
-      setScrolled(false);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
   return (
-    <>
-      <Navbar fixed={scrolled} scrolled={scrolled} />
-
-      <div className="w-full h-full">
-        <div className="flex justify-center  pt-60 pb-20 border-b-4 ">
+    <Layout>
+      <div className="">
+        <div className="flex justify-center py-20 mx-4 border-b-4 ">
           <div className="text-center">
-            <p className="text-4xl font-bold">STRUKTUR ORGANISASI</p>
-            <p className="text-2xl font-bold">DESA TEBING TINGGI</p>
+            <p className="text-4xl font-black">STRUKTUR ORGANISASI</p>
+            <p className="text-2xl font-medium">DESA TEBING TINGGI</p>
           </div>
         </div>
-        <div className=" sm:grid gap-4 grid-cols-3 py-28 gap-y-12  justify-center ">
+        <div className=" grid gap-4 grid-cols-3 py-28  md:gap-12  justify-center mx-8">
           {teamMembers.map((member, index) => (
             <div
-              className=" inline-block justify-center items-center text-center rounded-2xl w-80 py-2 gap-y-4 my-4 mx-auto"
+              className=" justify-center items-center text-center rounded-2xl  py-2 gap-y-4 my-4 bg-slate-400 md:mx-20"
               key={index}
             >
-              <Image
-                src="/asset/pp.png"
-                alt="Image Description"
-                width={302}
-                height={302}
-                className="rounded-[50px] mx-auto my-2"
-              />
-              <p className="text-2xl font-[800]">{member.name}</p>
-              <p>{member.role}</p>
+              <p className="text-base md:text-2xl font-bold">{member.name}</p>
+              <p className="md:text-base text-xs">{member.role}</p>
             </div>
           ))}
         </div>
-        <div className="h-20  mt-20"></div>
       </div>
-    </>
+    </Layout>
   );
 }
