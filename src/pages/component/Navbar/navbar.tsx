@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Kontak from "../../kontak/index";
 import Link from "next/link";
+import Image from "next/image";
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -64,11 +65,14 @@ export default function Navbar() {
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center gap-4">
-              <img
-                className="h-8 w-auto"
+              <Image
                 src="/asset/sergai.png"
-                alt="Your Company"
+                alt="Image Description"
+                width={30}
+                height={30}
+                className=" md:mx-auto my-2 "
               />
+
               <div className="text-base font-bold">Desa Tebing Tinggi</div>
             </div>
             <div className="hidden sm:ml-6 sm:block">
