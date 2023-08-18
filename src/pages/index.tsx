@@ -2,7 +2,6 @@ import backgroundImage from "../../public/asset/background.jpg";
 import { useEffect, useState } from "react";
 import Navbar from "./component/Navbar/navbar";
 import Visi from "./visimisi";
-import NavbarCopy from "./component/Navbar/navbar copy";
 import Layout from "./component/layout";
 import Image from "next/image";
 

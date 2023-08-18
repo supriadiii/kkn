@@ -3,6 +3,7 @@ import Navbar from "../component/Navbar/navbar";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Layout from "../component/layout";
 export default function DetailBerita() {
   const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
@@ -14,28 +15,8 @@ export default function DetailBerita() {
       ? JSON.parse(data)
       : { judulBerita: "", tanggalTerbit: "", imageUrl: "" };
 
-  const handleScroll = () => {
-    const scrollPosition = window.scrollY;
-    const scrollThreshold = 100;
-
-    if (scrollPosition > scrollThreshold) {
-      setScrolled(true);
-    } else {
-      setScrolled(false);
-    }
-  };
-  console.log("ini beritaData", beritaData);
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
   return (
-    <>
-      <Navbar fixed={scrolled} scrolled={scrolled} />
-
+    <Layout>
       <div className="w-full h-full  bg-slate-100">
         <div className="flex justify-center text-center mt-20 py-32  px-48 bg-black  text-white">
           <div>
@@ -96,6 +77,6 @@ export default function DetailBerita() {
         </div>
         <div className="h-20 mt-20"></div>
       </div>
-    </>
+    </Layout>
   );
 }
